@@ -27,9 +27,9 @@ class CurrencyExchangeController extends Controller
             $History->currency_name = empty($currency_code) ? null : $this->currencyNames[random_int(0,9)]['name'];
             $History->amount = empty($amount) ? null : $amount;
             $History->success = false;
-            $History->message = 'All fields are requiered';
+            $History->message = 'All fields are required';
             $History->save();
-            return response('All fields are requiered', 400);
+            return response('All fields are required', 400);
         }
         $History = new History();
         $History->currency_date = $currency_date;

@@ -136,7 +136,7 @@
                     PBS Exercise
                 </div>
                 <div>
-                    <h1>Calculate Curreny Exchanges</h1>
+                    <h1>Calculate Currency Exchanges</h1>
                 </div>
                 <span class="success" style="color:green; margin-top:10px; margin-bottom: 10px;"></span>
                <div>
