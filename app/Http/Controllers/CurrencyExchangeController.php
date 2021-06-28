@@ -13,7 +13,8 @@ class CurrencyExchangeController extends Controller
     protected $currencyNames;
     public function __construct()
     {
-        $this->currencyNames =  array(['code' => "EUR", 'name' => "Euro"], ['code' => "USD", 'name' => "US Dollar"], ['code' => "JPY", 'name' => "Japanese Yen"], ['code' => "BGN", 'name' => "Bulgarian Lev"], ['code' => "CZK", 'name' => "Czech Koruna"], ['code' => "brl", 'name' => "Brazilian real"], ['code' => "btc", 'name' => "Bitcoin"], ['code' => "bzd", 'name' => "Belize dollar"], ['code' => "cad", 'name' => "Canadian dollar"], ['code' => "chf", 'name' => "Swiss franc"],) ;
+        //we'll populate the name later from the api's currency list
+        //$this->currencyNames =  array(['code' => "EUR", 'name' => "Euro"], ['code' => "USD", 'name' => "US Dollar"], ['code' => "JPY", 'name' => "Japanese Yen"], ['code' => "BGN", 'name' => "Bulgarian Lev"], ['code' => "CZK", 'name' => "Czech Koruna"], ['code' => "brl", 'name' => "Brazilian real"], ['code' => "btc", 'name' => "Bitcoin"], ['code' => "bzd", 'name' => "Belize dollar"], ['code' => "cad", 'name' => "Canadian dollar"], ['code' => "chf", 'name' => "Swiss franc"],) ;
     }
 
     public function store(Request $request)
@@ -28,7 +29,7 @@ class CurrencyExchangeController extends Controller
             $History = new History();
             $History->currency_date = empty($currency_date) ? null : $currency_date;
             $History->currency_code = empty($currency_code) ? null : $currency_code;
-            $History->currency_name = empty($currency_code) ? null : $this->currencyNames[random_int(0,9)]['name'];
+            $History->currency_name = ''; 
             $History->amount = empty($amount) ? null : $amount;
             $History->success = false;
             $History->message = 'All fields are required';
@@ -41,22 +42,14 @@ class CurrencyExchangeController extends Controller
         $History = new History();
         $History->currency_date = $currency_date;
         $History->currency_code = $currency_code;
-        $History->currency_name = $this->currencyNames[random_int(0,9)]['name'];
+        $History->currency_name = ''; //we'll populate this later from the full api list
         $History->amount = $amount;
         $History->success = false; //indicates it is not yet processed by the queue
         $History->save();
         
+        //dispatch event to our HandleCalculationRequest listener
         NewCalculationRequestReceivedEvent::dispatch($History);
 
-        //we'll do this in the event handler
-        // for ($i=0; $i < 10; $i++) {
-        //     $Values = new Values();
-        //     $Values->history_id = $History->id;
-        //     $Values->currency_code = $this->currencyNames[$i]['code'];
-        //     $Values->currency_name = $this->currencyNames[$i]['name'];
-        //     $Values->amount = ($i + 1) * random_int(1, 100);
-        //     $Values->save();
-        // }
         return response('saved', 200);
     }
 

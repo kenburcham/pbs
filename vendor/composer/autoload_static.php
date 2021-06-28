@@ -473,6 +473,7 @@ class ComposerStaticInit46f76c49fe2b4e00d63c9d6f8c2de0c6
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Events\\NewCalculationRequestReceivedEvent' => __DIR__ . '/../..' . '/app/Events/NewCalculationRequestReceivedEvent.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CurrencyExchangeController' => __DIR__ . '/../..' . '/app/Http/Controllers/CurrencyExchangeController.php',
@@ -485,6 +486,11 @@ class ComposerStaticInit46f76c49fe2b4e00d63c9d6f8c2de0c6
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Jobs\\ProcessCurrencyRequest' => __DIR__ . '/../..' . '/app/Jobs/ProcessCurrencyRequest.php',
+        'App\\Library\\ExchangeInterface' => __DIR__ . '/../..' . '/app/Library/ExchangeInterface.php',
+        'App\\Library\\FawazahmedExchange' => __DIR__ . '/../..' . '/app/Library/FawazahmedExchange.php',
+        'App\\Library\\VatcomplyExchange' => __DIR__ . '/../..' . '/app/Library/VatcomplyExchange.php',
+        'App\\Listeners\\HandleCalculationRequest' => __DIR__ . '/../..' . '/app/Listeners/HandleCalculationRequest.php',
         'App\\Models\\History' => __DIR__ . '/../..' . '/app/Models/History.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Values' => __DIR__ . '/../..' . '/app/Models/Values.php',
@@ -4944,6 +4950,7 @@ class ComposerStaticInit46f76c49fe2b4e00d63c9d6f8c2de0c6
         'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
+        'Tests\\Feature\\CalculateTest' => __DIR__ . '/../..' . '/tests/Feature/CalculateTest.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',

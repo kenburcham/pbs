@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Events\\NewCalculationRequestReceivedEvent' => $baseDir . '/app/Events/NewCalculationRequestReceivedEvent.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\CurrencyExchangeController' => $baseDir . '/app/Http/Controllers/CurrencyExchangeController.php',
@@ -19,6 +20,11 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Jobs\\ProcessCurrencyRequest' => $baseDir . '/app/Jobs/ProcessCurrencyRequest.php',
+    'App\\Library\\ExchangeInterface' => $baseDir . '/app/Library/ExchangeInterface.php',
+    'App\\Library\\FawazahmedExchange' => $baseDir . '/app/Library/FawazahmedExchange.php',
+    'App\\Library\\VatcomplyExchange' => $baseDir . '/app/Library/VatcomplyExchange.php',
+    'App\\Listeners\\HandleCalculationRequest' => $baseDir . '/app/Listeners/HandleCalculationRequest.php',
     'App\\Models\\History' => $baseDir . '/app/Models/History.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Values' => $baseDir . '/app/Models/Values.php',
@@ -4478,6 +4484,7 @@ return array(
     'Symfony\\Polyfill\\Php73\\Php73' => $vendorDir . '/symfony/polyfill-php73/Php73.php',
     'Symfony\\Polyfill\\Php80\\Php80' => $vendorDir . '/symfony/polyfill-php80/Php80.php',
     'Tests\\CreatesApplication' => $baseDir . '/tests/CreatesApplication.php',
+    'Tests\\Feature\\CalculateTest' => $baseDir . '/tests/Feature/CalculateTest.php',
     'Tests\\Feature\\ExampleTest' => $baseDir . '/tests/Feature/ExampleTest.php',
     'Tests\\TestCase' => $baseDir . '/tests/TestCase.php',
     'Tests\\Unit\\ExampleTest' => $baseDir . '/tests/Unit/ExampleTest.php',

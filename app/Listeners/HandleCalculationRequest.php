@@ -47,13 +47,19 @@ class HandleCalculationRequest
             $possible_currencies = $api->getPossibleCurrencies();
             $random_currencies = array_rand($possible_currencies, 5);
     
-            //process each of our random 5 currencies (fetch the rate and save)
+            //dispatch each of our random 5 currencies (fetch the rate and save) to a queue job
             foreach ($random_currencies as $currency){
                 ProcessCurrencyRequest::dispatch($event->history, $currency, $possible_currencies[$currency], $api);
+            }
+
+            //set the name of our requested currency
+            if(array_key_exists($event->history->currency_code, $possible_currencies)){
+                $event->history->currency_name = $possible_currencies[$event->history->currency_code];
             }
         }
 
         $event->history->success = true;
+        $event->history->message = "Success.";
         $event->history->save();
         
     }
