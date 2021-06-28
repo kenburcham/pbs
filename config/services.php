@@ -30,4 +30,28 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // 'exchanges' => [
+    //     'fawazahmed' =>
+    //         [
+    //             'api' => 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest',
+    //             'currencies' => 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json',
+    //         ],
+    //     'vatcomply' =>
+    //         [
+    //             'api' => 'https://api.vatcomply.com/rates',
+    //             'currencies' => ''
+    //         ],
+    //     ],
+
 ];
+
+// APP_CURRENCYPROVIDERS=[
+    
+//     "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest",
+//     "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@{apiVersion}/{date}/{endpoint}",
+//     "https://api.vatcomply.com/rates?date={date}&base={currency}&
+
+//https://api.vatcomply.com/rates?base=USD&date=2021-06-01
+//https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/2020-11-24/currencies/eur.json
+
+
